@@ -97,7 +97,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.error("Error loading vehicles:", error);
           });
       },
-      // Handle favorites
+      // manejo FAVORITOS
       addFavorite: (item) => {
         const store = getStore();
         setStore({ favorites: [...store.favorites, item] });

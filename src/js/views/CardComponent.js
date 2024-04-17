@@ -128,11 +128,8 @@ const CardComponent = () => {
                   </button>
                   <button
                     className="btn btn-primary"
-                    onClick={() => {
-
-                      /* MANEJO DE DETALLES*/
-                    }}
-                  >
+                    onClick={() => handleShowDetails("planets", planet.uid)}
+                    >
                     Detalles
                   </button>
                 </div>
@@ -162,7 +159,6 @@ const CardComponent = () => {
                   Model: {vehicle.model || "N/A"}
                   <br />
                   Manufacturer: {vehicle.manufacturer || "N/A"}
-                  {/* FALTA AGREGAR detalles  */}
                 </p>
                 <div className="d-flex justify-content-between">
                   <button
@@ -173,9 +169,7 @@ const CardComponent = () => {
                   </button>
                   <button
                     className="btn btn-primary"
-                    onClick={() => {
-                      /* MANEJO DE DETALLES */
-                    }}
+                    onClick={() => handleShowDetails("vehicles", vehicle.uid)}
                   >
                     Detalles
                   </button>
