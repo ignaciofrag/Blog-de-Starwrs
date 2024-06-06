@@ -1,4 +1,4 @@
-const getState = ({ getStore, getActions, setStore }) => {
+const getState = ({ getStore, setStore }) => {
   return {
     store: {
       planets: [],
@@ -97,16 +97,22 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.error("Error loading vehicles:", error);
           });
       },
-      // manejo FAVORITOS
+
+      // Manejo de FAVORITOS
       addFavorite: (item) => {
         const store = getStore();
-        setStore({ favorites: [...store.favorites, item] });
+        const isFavorite = store.favorites.some(favorite => favorite.uid === item.uid);
+
+        if (!isFavorite) {
+          setStore({ favorites: [...store.favorites, item] });
+        }
       },
-	  removeFavorite: (uid) => {
-		const store = getStore();
-		const newFavorites = store.favorites.filter((item) => item.uid !== uid);
-		setStore({ favorites: newFavorites });
-	  },
+
+      removeFavorite: (uid) => {
+        const store = getStore();
+        const newFavorites = store.favorites.filter((item) => item.uid !== uid);
+        setStore({ favorites: newFavorites });
+      },
     },
   };
 };

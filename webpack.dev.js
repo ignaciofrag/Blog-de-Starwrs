@@ -1,7 +1,7 @@
 const path = require('path');
-const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
+const Dotenv = require('dotenv-webpack');
 
 const port = 3000;
 let publicUrl = `ws://localhost:${port}/ws`;
@@ -32,5 +32,7 @@ module.exports = merge(common, {
           webSocketURL: publicUrl
         },
     },
-    plugins: []
+    plugins: [
+      new Dotenv()
+    ]
 });
